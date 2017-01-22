@@ -11,8 +11,11 @@
 
 @interface Model : NSObject
 
-@property NSArray* questions;
+@property NSMutableArray* allQuestions;
+@property NSMutableArray<Question*> *roundOfQuestions;
 
--(Question*)getRandomQuestion;
+-(instancetype)init:(int)nrOfQuestions;
+
+-(NSMutableArray*)getRoundOfQuestions:(int)nrOfQuestions;
 
 @end

@@ -18,8 +18,22 @@
         self.question = array[0];
         self.correctAnswer = array[1];
         self.wrongAnswers = @[array[2], array[3], array[4]];
+        self.scrambledAnswers = [self getScrambledAnswers];
     }
     return self;
+}
+
+-(NSMutableArray*)getScrambledAnswers {
+    NSMutableArray* alternatives = [@[@"", @"", @"", @""] mutableCopy];
+    alternatives[arc4random() % 4] = self.correctAnswer;
+    int j=0;
+    for(int i=0; i<4; i++) {
+        if([alternatives[i] isEqualToString:@""]) {
+            alternatives[i] = self.wrongAnswers[j++];
+        }
+    }
+    [alternatives exchangeObjectAtIndex:arc4random() % 4 withObjectAtIndex:arc4random() % 4];
+    return alternatives;
 }
 
 @end

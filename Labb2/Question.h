@@ -13,6 +13,7 @@
 @property NSString* question;
 @property NSString* correctAnswer;
 @property NSArray* wrongAnswers;
+@property NSMutableArray* scrambledAnswers;
 
 -(instancetype)init:(NSArray*)array;
 

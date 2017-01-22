@@ -12,35 +12,38 @@
 
 @implementation Model
 
--(instancetype)init
+-(instancetype)init:(int)nrOfQuestions
 {
     self = [super init];
     
     if(self) {
-        self.questions = @[
-                           [[Question alloc] init:@[@"Vad heter Kalle Ankas farbror?", @"Joakim", @"Kajsa", @"Fnatte", @"Alexander"]],
-                           [[Question alloc] init:@[@"Vad heter huvudstaden i Norge?", @"Oslo", @"Bergen", @"Moskva", @"Shanghai"]],
-                           [[Question alloc] init:@[@"Vem spelade Tv-detektiven Columbo?", @"Peter Falk", @"Tom Selleck", @"Richard Dean Anderson", @"Gillian Anderson"]],
-                           [[Question alloc] init:@[@"Vad heter Sveriges drottning?", @"Silvia", @"Salvia", @"Saliv", @"Annika"]],
-                           [[Question alloc] init:@[@"Hur många sidor har en fyrkant?", @"Fyra", @"Tre", @"En", @"Hundra"]],
-                           [[Question alloc] init:@[@"Vad heter Bamses äldsta dotter?", @"Nalle-Maja", @"Brumma", @"Teddy", @"Skalman"]],
-                           [[Question alloc] init:@[@"Vad heter Japans huvudstad?", @"Tokyo", @"Linköping", @"Rom", @"Alingsås"]],
-                           [[Question alloc] init:@[@"I vilket landskap ligger Malmö?", @"Skåne", @"Norrbotten", @"Västmanland", @"Småland"]],
-                           [[Question alloc] init:@[@"Vad hette USA:s första president?", @"George Washington", @"George Harrison", @"George Formby", @"George Foreman"]],
-                           [[Question alloc] init:@[@"Vem är störst och vackrast i skogen?", @"Bo Ko", @"Gösta Grävling", @"Krösus Sork", @"Tiger"]]
-                           ];
+        self.allQuestions = [@[
+                           @[@"Vad heter Kalle Ankas farbror?", @"Joakim", @"Kajsa", @"Fnatte", @"Alexander"],
+                           @[@"Vad heter huvudstaden i Norge?", @"Oslo", @"Bergen", @"Moskva", @"Shanghai"],
+                           @[@"Vem spelade Tv-detektiven Columbo?", @"Peter Falk", @"Tom Selleck", @"Richard Dean Anderson", @"Gillian Anderson"],
+                           @[@"Vad heter Sveriges drottning?", @"Silvia", @"Salvia", @"Saliv", @"Annika"],
+                           @[@"Hur många sidor har en fyrkant?", @"Fyra", @"Tre", @"En", @"Hundra"],
+                           @[@"Vad heter Bamses äldsta dotter?", @"Nalle-Maja", @"Brumma", @"Teddy", @"Skalman"],
+                           @[@"Vad heter Japans huvudstad?", @"Tokyo", @"Linköping", @"Rom", @"Alingsås"],
+                           @[@"I vilket landskap ligger Malmö?", @"Skåne", @"Norrbotten", @"Västmanland", @"Småland"],
+                           @[@"Vad hette USA:s första president?", @"George Washington", @"George Harrison", @"George Formby", @"George Foreman"],
+                           @[@"Vem är störst och vackrast i skogen?", @"Bo Ko", @"Gösta Grävling", @"Krösus Sork", @"Tiger"]
+                           ]
+                           mutableCopy];
     }
+    self.roundOfQuestions = [self getRoundOfQuestions:nrOfQuestions];
     
     return self;
 }
 
-
-
-
-
--(Question*)getRandomQuestion {
-    return self.questions[arc4random() % self.questions.count];
+-(NSMutableArray*)getRoundOfQuestions:(int)nrOfQuestions {
+    NSMutableArray* result = [@[] mutableCopy];
+    for(int i=1; i<=nrOfQuestions; i++) {
+        int rand = arc4random() % self.allQuestions.count;
+        [result addObject:[[Question alloc] init:self.allQuestions[rand]]];
+        [self.allQuestions removeObjectAtIndex:rand];
+    }
+    return result;
 }
-
 
 @end

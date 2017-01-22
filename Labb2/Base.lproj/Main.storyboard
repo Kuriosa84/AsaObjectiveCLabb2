@@ -112,6 +112,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fel svar!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rln-6m-wmH">
+                                <rect key="frame" x="84" y="305" width="152" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99506265859999998" green="0.067340744249741347" blue="0.026133679925051091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-Wh-fwW">
                                 <rect key="frame" x="102" y="497" width="117" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,14 +131,34 @@
                                     <action selector="loadNextQuestion:" destination="lxg-Qk-pow" eventType="touchUpInside" id="YTJ-Up-Aeo"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fel svar!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rln-6m-wmH">
-                                <rect key="frame" x="84" y="305" width="152" height="76"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgC-QW-zRA">
+                                <rect key="frame" x="102" y="487" width="117" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99506265859999998" green="0.067340744249741347" blue="0.026133679925051091" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.74629586859999997" green="0.66599878899999998" blue="0.92554211620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Resultat">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFinalScore:" destination="lxg-Qk-pow" eventType="touchUpInside" id="YPJ-Lb-7Tu"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resultatet." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-e6-TJa">
+                                <rect key="frame" x="84" y="139" width="152" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74629586859999997" green="0.66599878899999998" blue="0.92554211620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gu-f5-adu">
+                                <rect key="frame" x="84" y="255" width="152" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.62796798239999996" green="0.99506265859999998" blue="0.50405464919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Spela igen"/>
+                                <connections>
+                                    <action selector="playAgain:" destination="lxg-Qk-pow" eventType="touchUpInside" id="puS-qY-Rlf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -141,7 +169,10 @@
                         <outlet property="alt4" destination="G00-sQ-EyD" id="JTf-Kx-9Lj"/>
                         <outlet property="correctLabel" destination="4jW-3u-kgh" id="XFg-y5-gex"/>
                         <outlet property="nextQuestion" destination="Z6p-Wh-fwW" id="lrN-8G-dvN"/>
+                        <outlet property="playAgainButton" destination="0Gu-f5-adu" id="H3i-00-hP1"/>
                         <outlet property="questionBox" destination="l1N-U7-mm4" id="W12-jF-6kj"/>
+                        <outlet property="resultButton" destination="MgC-QW-zRA" id="I1Q-Sc-oSB"/>
+                        <outlet property="resultLabel" destination="ieU-e6-TJa" id="cHc-wn-K4c"/>
                         <outlet property="wrongLabel" destination="rln-6m-wmH" id="2UE-tl-p70"/>
                     </connections>
                 </viewController>

@@ -325,6 +325,7 @@
 				47B2AE521E2E4B180042ADCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
